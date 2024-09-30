@@ -1,8 +1,8 @@
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   list-style: none;
-  padding-top: 20px;
 }
 
 .card__image {
@@ -40,6 +40,21 @@
   height: 18px;
   border: none;
   cursor: pointer;
+}
+
+.card__delete-button {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  background: url(../images/Trash.svg) center no-repeat;
+  width: 18px;
+  height: 19.3px;
+  border: none;
+  cursor: pointer;
+}
+
+.card__like-button_active {
+  background-image: url(../images/heart-filled.svg);
 }
 
 .card__like-button:hover {

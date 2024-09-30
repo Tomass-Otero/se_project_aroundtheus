@@ -18,4 +18,5 @@ In case you want to contribute, you can:
 
 ~ ~
 
-link to the repository (https://github.com/Tomass-Otero/se_project_aroundtheus)
+link to the repository (https://tomass-otero.github.io/se_project_aroundtheus/)
+link to the video explaining the process (https://vimeo.com/953353770?share=copy)
