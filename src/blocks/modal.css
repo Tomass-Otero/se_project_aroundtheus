@@ -1,16 +1,33 @@
 .modal {
+  display: flex;
   position: fixed;
-  display: none;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: visibility 0.3s linear 0s, opacity 0.3s linear;
 }
 
 .modal_opened {
   display: flex;
+  visibility: visible;
+  pointer-events: all;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+.modal__image-caption {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.52px;
+  bottom: 140px;
+  background: none;
 }
 
 .modal__container {
@@ -109,13 +126,14 @@
     margin-top: 25px;
     margin-right: 22px;
     margin-left: 22px;
+    margin-bottom: 40px;
   }
 
   .modal__input {
-    margin: 0 22px 30px;
+    margin: 35px 22px 0px;
   }
   .modal__button {
-    margin-top: 45px;
+    margin-top: 40px;
     margin-right: 22px;
     margin-left: 22px;
     margin-bottom: 25px;
