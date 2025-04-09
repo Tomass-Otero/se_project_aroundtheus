@@ -1,19 +1,14 @@
-import Popup from "./scripts/Popup.js";
+import Popup from "./Popup.js";
 
-class PopupWithForm extends Popup {
+export default class PopupWithForm extends Popup {
   constructor({ popupSelector, handleFormSubmit }) {
+    console.log(popupSelector);
     super({ popupSelector });
     this._popupForm = this._popupElement.querySelector(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
   }
 
   close() {
-    this._popupForm.reset();
+    super.close();
   }
 }
-
-//i
-const newCardPopup = new PopupWithForm("#card-edit-modal", () => {});
-newCardPopup.open();
-
-newCardPopup.close();
