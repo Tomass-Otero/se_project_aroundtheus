@@ -2,6 +2,7 @@ import Card from "../components/card.js";
 import FormValidator from "../components/FormValidator.js";
 import "../pages/index.css";
 import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 
 const initialCards = [
@@ -140,6 +141,9 @@ const editProfileModal = new PopupWithForm({
 
 editProfileModal.setEventListeners();
 
+// popup with image instance for the prview modal
+const previewModal = new PopupWithImage("#preview-modal");
+
 const openEditModal = () => {
   const { userName, userDescription } = userInfo.getUserInfo();
 
@@ -154,8 +158,9 @@ const openEditModal = () => {
 profileEditButton.addEventListener("click", openEditModal);
 
 const createCard = (data) => {
+  const { name, link } = data;
   const card = new Card(data, "#card-template", () => {
-    openModal(previewImageModalWindow);
+    previewModal.open(name, link);
   });
   return card.getView();
 };
@@ -179,17 +184,17 @@ function handleImageClick(link, name) {
   openModal(previewImageModalWindow);
 }
 
-function closePopup(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", closeModalEsc);
-  modal.removeEventListener("mousedown", closeOverlay);
-}
+// function closePopup(modal) {
+//   modal.classList.remove("modal_opened");
+//   document.removeEventListener("keydown", closeModalEsc);
+//   modal.removeEventListener("mousedown", closeOverlay);
+// }
 
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-  document.addEventListener("keydown", closeModalEsc);
-  modal.addEventListener("mousedown", closeOverlay);
-}
+// function openModal(modal) {
+//   modal.classList.add("modal_opened");
+//   document.addEventListener("keydown", closeModalEsc);
+//   modal.addEventListener("mousedown", closeOverlay);
+// }
 
 // function closeOverlay(e) {
 //   if (e.target.classList.contains("modal")) {
@@ -233,7 +238,7 @@ initialCards.forEach((cardData) => {
 
 // addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 
-closeButtons.forEach((button) => {
-  const popup = button.closest(".modal");
-  button.addEventListener("click", () => closePopup(popup));
-});
+// closeButtons.forEach((button) => {
+//   const popup = button.closest(".modal");
+//   button.addEventListener("click", () => closePopup(popup));
+// });
