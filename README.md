@@ -5,7 +5,7 @@ Welcome to my project, made with HTML and CSS.
 ~ ~
 
 The main idea of the page is an interactive layout where users can add, remove, and like photos of other users, and make a few minor adjustments to their own profiles.g
-The principal objective of this project was to be able to make a responsive design for the webpage, modifying the vh and making it interactive to use either on a regular computer, a tablet or a smartphone.
+The principal objective of this project was to be able to make a responsive design for the webpage, modifying the vh and making it interactive to use either on a regular computer, a tablet or a smartphone as long as creating, deleting and editing your profile and photos/posts.
 
 ~ ~
 

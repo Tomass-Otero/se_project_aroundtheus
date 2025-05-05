@@ -61,8 +61,10 @@ const cardTemplate = document
   .content.querySelector(".card");
 const addNewCardButton = document.querySelector(".profile__add-button");
 
-const nameInput = profileEditForm.querySelector(".modal__input_type_title");
-const jobInput = profileEditForm.querySelector(".modal__input_type_url");
+// const nameInput = profileEditForm.querySelector(".modal__input_type_title");
+// const jobInput = profileEditForm.querySelector(".modal__input_type_url");
+const nameInput = profileEditForm.querySelector("#profile-title-input");
+const jobInput = profileEditForm.querySelector("#profile-description-input");
 const cardTitleInput = addCardFormElement.querySelector(
   ".modal__input_type_title"
 );
@@ -145,17 +147,22 @@ editProfileModal.setEventListeners();
 const previewModal = new PopupWithImage("#preview-modal");
 
 const openEditModal = () => {
-  const { userName, userDescription } = userInfo.getUserInfo();
-
-  titleInput.value = userName;
-  descriptionInput.value = userDescription;
+  const currentUserInfo = userInfo.getUserInfo();
+  titleInput.value = currentUserInfo.userName;
+  descriptionInput.value = currentUserInfo.userDescription;
 
   editFormValidator.resetValidation();
+
+  // profileFormValidator.resetValidation();
 
   editProfileModal.open();
 };
 
-profileEditButton.addEventListener("click", openEditModal);
+const openEditFormButton = document.querySelector(".profile__edit-button");
+
+openEditFormButton.addEventListener("click", openEditModal);
+
+// profileEditButton.addEventListener("click", openEditModal);
 
 const createCard = (data) => {
   const { name, link } = data;
@@ -214,20 +221,20 @@ function handleImageClick(link, name) {
 //     closeModal(evt.target);
 //   }
 // }
-const userInfo = new UserInfo(
-  "the-profile-title-selector",
-  "the-profile-description-selector"
-);
+const userInfo = new UserInfo({
+  profileTitleSelector: ".profile__title",
+  profileDescriptionSelector: ".profile__description",
+});
 
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                         Event Listeners                                                                                        */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-profileEditButton.addEventListener("click", () => {
-  profileTitleInput.value = profileTitle.textContent;
-  profileDescriptionInput.value = profileDescription.textContent;
-  openModal(profileEditModal);
-});
+// profileEditButton.addEventListener("click", () => {
+//   profileTitleInput.value = profileTitle.textContent;
+//   profileDescriptionInput.value = profileDescription.textContent;
+//   openModal(profileEditModal);
+// });
 
 // profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 // addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);

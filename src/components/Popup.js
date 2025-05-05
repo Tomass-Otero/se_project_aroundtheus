@@ -22,7 +22,7 @@ export default class Popup {
         this.close();
       }
     });
-    this._closeButtons.addEventListener("click", this.close);
+
     // set event listener on close button to close when clicked on
   }
 
