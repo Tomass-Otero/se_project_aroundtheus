@@ -144,6 +144,22 @@ editProfileModal.setEventListeners();
 // popup with image instance for the prview modal
 const previewModal = new PopupWithImage("#preview-modal");
 
+const addCardPopup = new PopupWithForm({
+  popupSelector: "#card-edit-modal",
+  handleFormSubmit: () => {
+    console.log("adding form");
+  },
+});
+
+// addCardPopup.open();
+
+previewModal.setEventListeners();
+addCardPopup.setEventListeners();
+
+const addFormButton = document.querySelector(".profile__add-button");
+
+addFormButton.addEventListener("click", () => addCardPopup.open());
+
 const openEditModal = () => {
   const currentUserInfo = userInfo.getUserInfo();
   titleInput.value = currentUserInfo.userName;
