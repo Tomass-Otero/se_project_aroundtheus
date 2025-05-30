@@ -10,7 +10,7 @@ export default class UserInfo {
       profileDescriptionSelector
     );
   }
-  setUserInfo(title, description) {
+  setUserInfo({ title, description }) {
     this._profileTitleElement.textContent = title;
     this._profileDescriptionElement.textContent = description;
   }

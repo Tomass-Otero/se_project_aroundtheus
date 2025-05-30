@@ -134,8 +134,9 @@ function handleAddCardFormSubmit(evt) {
 
 const editProfileModal = new PopupWithForm({
   popupSelector: "#profile-edit-modal",
-  handleFormSubmit: () => {
+  handleFormSubmit: (data) => {
     console.log("submitting form");
+    userInfo.setUserInfo(data);
   },
 });
 
@@ -162,8 +163,8 @@ addFormButton.addEventListener("click", () => addCardPopup.open());
 
 const openEditModal = () => {
   const currentUserInfo = userInfo.getUserInfo();
-  titleInput.value = currentUserInfo.userName;
-  descriptionInput.value = currentUserInfo.userDescription;
+  titleInput.value = currentUserInfo.title;
+  descriptionInput.value = currentUserInfo.description;
 
   editFormValidator.resetValidation();
 
