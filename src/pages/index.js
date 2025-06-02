@@ -137,6 +137,7 @@ const editProfileModal = new PopupWithForm({
   handleFormSubmit: (data) => {
     console.log("submitting form");
     userInfo.setUserInfo(data);
+    editProfileModal.close();
   },
 });
 
