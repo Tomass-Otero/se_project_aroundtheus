@@ -147,7 +147,7 @@ const addCardPopup = new PopupWithForm({
     addCardFormElement.reset();
 
     // disable button
-    addFormValidator.disableSubmitButton;
+    addFormValidator.disableSubmitButton();
   },
 });
 
@@ -204,6 +204,6 @@ const userInfo = new UserInfo({
   profileDescriptionSelector: ".profile__description",
 });
 
-initialCards.forEach((cardData) => {
-  renderCard(cardData, cardsWrap);
-});
+// initialCards.forEach((cardData) => {
+//   renderCard(cardData, cardsWrap);
+// });
