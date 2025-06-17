@@ -80,24 +80,6 @@ function renderCard(cardData) {
   cardList.addItem(cardElement);
 }
 
-// function handleProfileFormSubmit(evt) {
-//   evt.preventDefault();
-//   profileTitle.textContent = profileTitleInput.value;
-//   profileDescription.textContent = descriptionInput.value;
-//   closePopup(profileEditModal);
-// }
-
-// function handleAddCardFormSubmit(evt) {
-//   evt.preventDefault();
-//   const name = cardTitleInput.value;
-//   const link = cardUrlInput.value;
-//   renderCard({ name, link }, cardsWrap);
-//   closePopup(addCardModal);
-//   addCardFormElement.reset();
-
-//   addFormValidator.resetValidation();
-// }
-
 const editProfileModal = new PopupWithForm({
   popupSelector: "#profile-edit-modal",
   handleFormSubmit: (data) => {
@@ -157,7 +139,7 @@ const cardList = new Section(
   {
     items: initialCards,
     renderer: (data) => {
-      cardList.addItem(createCard(data));
+      renderCard(data);
     },
   },
   ".cards__list"

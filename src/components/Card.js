@@ -1,6 +1,5 @@
 export default class Card {
   constructor({ name, link }, cardSelector, handleImageClick) {
-    console.log({ name, link });
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
@@ -40,7 +39,6 @@ export default class Card {
       .querySelector(this._cardSelector)
       .content.querySelector(".card")
       .cloneNode(true);
-    console.log(this._cardElement);
     this._cardImage = this._cardElement.querySelector(".card__image");
     this._cardTitle = this._cardElement.querySelector(".card__title");
     this._cardImage.src = this._link;
